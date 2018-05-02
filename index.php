@@ -19,7 +19,7 @@ session_start();
     }
     
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 650px}
+    .row.content {height: 750px}
     
     /* Set gray background color and 100% height */
     .sidenav {
@@ -106,6 +106,32 @@ session_start();
         }
   ?>
     </div>
+
+    <td width="80%" valign="top">
+      <? if(isset($_SESSION['user'])) { ?>
+      <div class="content">
+      <strong><p align="left">สร้างหัวข้อใหม่</p></strong><br />
+      <from name="frmEntry" id="frmEntry">
+      <table width="100%" border="0" cellspacing="2" cellpadding="2">
+        <tr>
+          <td width="20%">หัวข้อ :</td>
+          <td width="80%"><input type="text" size="55" name="title" id="title"></td>
+      </tr>
+    <tr>
+      <td valign="TOP">รายละเอียด :</td>
+      <td><textarea name="detail" cols="45" rows="5" id="detail"></textarea></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="button" name="submit"> value="ตกลง" onClick="return check_data
+        (frmEntry.title.value, frmEntry.detail.value, 'ADD')"></td>
+      </tr>
+      </table>
+      </from>
+      </div>
+    <? } ?>
+    <br><br>
+
     <div id="blogdetail"> 
       <h1>TREEBLOG</h1>
       <?php
@@ -140,5 +166,6 @@ session_start();
       }
       ?>
     </div>
+  
 </body>
 </html>
